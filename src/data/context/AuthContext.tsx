@@ -18,7 +18,7 @@ function gerenciarCookie(logged: boolean, token: string) {
     }
 }
 
-export default function AuthProvider(props) {
+export function AuthProvider(props) {
     const [loading, setLoading] = useState(false);
     const [user, setUser] = useState<User>(null);
 
@@ -90,5 +90,5 @@ export default function AuthProvider(props) {
     )
 }
 
-
+export default AuthContext;
 
