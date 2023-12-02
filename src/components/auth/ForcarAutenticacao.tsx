@@ -1,8 +1,9 @@
 import Head from "next/head";
 import router from "next/router";
+import useAuth from "../../data/hook/useAuth";
 
 export default function ForcarAutenticacao(props) {
-    const { usuario, carregando } = useAuth();
+    const { user, loading } = useAuth();
 
     function renderizarConteudo() {
         <>
@@ -48,9 +49,9 @@ export default function ForcarAutenticacao(props) {
         )
     }
 
-    if (!carregando && usuario?.usuario) {
+    if (!loading && user?.user) {
         return renderizarConteudo();
-    } else if (carregando) {
+    } else if (loading) {
         return renderizarCarregando();
     } else {
         router.push('/Autenticacao'); //protecao de rota
