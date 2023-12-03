@@ -1,0 +1,45 @@
+.cards {
+  display: grid;
+
+  grid-template-columns: repeat(4, 1fr);
+
+  grid-template-areas:
+    "box-titulo box-titulo box-titulo box-titulo"
+    'box-cards-1 box-cards-1 box-cards-2 box-cards-2'
+    'box-graph-1 box-graph-3 box-graph-3 box-graph-3'
+    'box-graph-2 box-graph-4 box-graph-4 box-graph-4';
+
+  gap: .7rem;
+}
+
+.card:nth-child(1) {
+    grid-area: box-titulo;
+}
+
+.card:nth-child(2) {
+    grid-area: box-cards-1;
+}
+
+.card:nth-child(2) {
+    grid-area: box-cards-1;
+}
+
+.card:nth-child(3) {
+    grid-area: box-cards-2;
+}
+
+.card:nth-child(4) {
+    grid-area: box-graph-1;
+}
+
+.card:nth-child(5) {
+    grid-area: box-graph-2;
+}
+
+.card:nth-child(6) {
+    grid-area: box-graph-3;
+}
+
+.card:nth-child(7) {
+    grid-area: box-graph-4;
+}

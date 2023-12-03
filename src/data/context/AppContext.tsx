@@ -3,7 +3,7 @@ import AppContextProps from '../../interfaces/AppContextProps';
 
 const AppContext = createContext<AppContextProps>({});
 
-export function AppProvider (props: any) {
+export function AppProvider(props: any) {
     const [theme, setTheme] = useState("");
     const [navbarVisibility, setNavbarVisibility] = useState(false);
     const [selectedTab, setSelectedTab] = useState("/");
@@ -40,19 +40,19 @@ export function AppProvider (props: any) {
 
     return (
         <AppContext.Provider
-        value={{
-            theme,
-            changeTheme,
-            navbarVisibility,
-            changeVisibility,
-            loading,
-            changeLoading,
-            reloading,
-            changeReloading,
-            selectedTab,
-            changeSelectedTab
-        }}>
-
+            value={{
+                theme,
+                changeTheme,
+                navbarVisibility,
+                changeVisibility,
+                loading,
+                changeLoading,
+                reloading,
+                changeReloading,
+                selectedTab,
+                changeSelectedTab
+            }}>
+            {props.children}
         </AppContext.Provider>
     )
 }

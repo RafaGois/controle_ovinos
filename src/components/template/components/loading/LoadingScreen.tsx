@@ -2,7 +2,7 @@ import CardItemSkeleton from './CardItemSkeleton';
 import RectangleSkeleton from './RectangleSkeleton';
 import SquareSkeleton from './SquareSkeleton';
 
-import styles from '../../../styles/LoadingScreen.module.css';
+import styles from '../../../../styles/LoadingScreen.module.css';
 
 export default function LoadingScreen() {
   return (

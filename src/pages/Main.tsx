@@ -1,9 +1,10 @@
+import Layout from "../components/template/Layout";
 
 
 export default function Main (props) {
     return (
-        <div>
-            <h1>Main</h1>
-        </div>
+        <Layout titulo="Main" subTitulo="Tela Principal">
+            <p>Tela Main</p>
+        </Layout>
     )
 }
