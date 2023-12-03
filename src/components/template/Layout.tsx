@@ -11,7 +11,6 @@ import useAuth from "../../data/hook/useAuth";
 
 export default function Layout(props: LayoutProps) {
     const { theme, loading } = useAppData();
-    const { user } = useAuth();
 
     return (
         <ForcarAutenticacao>

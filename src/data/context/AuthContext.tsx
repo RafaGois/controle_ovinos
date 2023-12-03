@@ -23,6 +23,8 @@ export function AuthProvider(props) {
     const [user, setUser] = useState<User>(null);
 
     async function configurarSessao(userRecebido: User) {
+        console.log(user);
+        
         if (userRecebido?.token) {
             setUser(userRecebido);
             gerenciarCookie(true, userRecebido.token);
@@ -70,6 +72,9 @@ export function AuthProvider(props) {
             axios.get(`https://urldaapi/auth/valida/?token=${token}`)
                 .then((retorno) => {
                     retorno.data.valid ? configurarSessao(retorno.data.decoded) : configurarSessao(null);
+                }).catch((err) => {
+                    console.log(err);
+                    
                 })
         } else {
             configurarSessao(null);
