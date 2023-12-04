@@ -13,7 +13,7 @@ export default function ForcarAutenticacao(props) {
               dangerouslySetInnerHTML={{
                 __html: ` 
                   if(!document.cookie?.includes("ovinos-auth")) {
-                      window.location.href = "/Autenticacao"
+                      window.location.href = "/"
                   }
                   `,
               }}
@@ -55,7 +55,7 @@ export default function ForcarAutenticacao(props) {
     } else if (loading) {
       return renderizarCarregando();
     } else {
-      route.push('/Autenticacao');
+      route.push('/');
       return null;
     }
 }
