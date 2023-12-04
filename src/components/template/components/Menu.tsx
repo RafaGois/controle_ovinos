@@ -21,8 +21,8 @@ export default function Menu() {
         <CgClose size={30} color="#dadada" className="cursor-pointer lg:hidden" onClick={() => changeVisibility(false)} />
       </div>
       <ul className="flex flex-col flex-grow overflow-y-auto mt-4 gap-2">
-        <MenuItem url="/" text="Relatorios" icon={<MdSpaceDashboard size={20} />} type="normal" />
-        <MenuItem url="/" text="Rebanho" icon={<BiSolidSpreadsheet size={20} />} type="normal" />
+        <MenuItem url="/Relatorios" text="Relatorios" icon={<MdSpaceDashboard size={20} />} type="normal" />
+        <MenuItem url="/Rebanho" text="Rebanho" icon={<BiSolidSpreadsheet size={20} />} type="normal" />
       </ul>
       <ul>
         <MenuItem

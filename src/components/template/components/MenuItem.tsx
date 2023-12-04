@@ -10,8 +10,8 @@ export default function MenuItem(props: MenuItemProps) {
         if (props.type === "especial") {
             return `${usual} ${props.className}`;
         } else {
-            return `${usual} text-gray-600 dark:text-gray-200 hover:border-l-4 hover:border-blue-800 ${props.className} 
-                ${selectedTab === props.url && 'border-l-4 border-blue-800 bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-800 rounded-r-md'}`;
+            return `${usual} text-gray-600 dark:text-gray-200 hover:border-l-4 hover:border-green-600 ${props.className} 
+                ${selectedTab === props.url && 'border-l-4 border-green-600 bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-800 rounded-r-md'}`;
         }
     }
 
