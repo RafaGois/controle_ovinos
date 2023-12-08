@@ -19,12 +19,10 @@ function gerenciarCookie(logged: boolean, token: string) {
 }
 
 export function AuthProvider(props) {
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
     const [user, setUser] = useState<User>(null);
 
     async function configurarSessao(userRecebido: User) {
-        console.log(user);
-        
         if (userRecebido?.token) {
             setUser(userRecebido);
             gerenciarCookie(true, userRecebido.token);
