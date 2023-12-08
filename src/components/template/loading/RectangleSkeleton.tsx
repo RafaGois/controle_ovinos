@@ -1,5 +1,5 @@
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton';
-import useAppData from '../../../../data/hook/useAppData';
+import useAppData from '../../../data/hook/useAppData';
 
 interface RectangleSkeletonProps {
     height: number,
