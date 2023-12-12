@@ -5,4 +5,5 @@ export default interface AuthContextProps {
     loading?: boolean;
     login?: (usuario: string, senha: string) => Promise<void>;
     logout?: () => Promise<void>;
+    register?: (name: string, username: string, password: string) => Promise<void>;
 }

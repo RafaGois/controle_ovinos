@@ -44,11 +44,12 @@ export function AuthProvider(props) {
 
         try {
             setLoading(true);
-            const retorno = await axios.post("https://urldaapi.com/auth", { usuarioRecebido });
+            const retorno = await axios.post("http://localhost:8080/users/auth", { usuarioRecebido });
             configurarSessao(retorno.data);
             router.push("/");
         } catch (error) {
-            console.log(error);
+            //todo colocar a msg aq
+            throw new Error('erro');
         } finally {
             setLoading(false);
         }
@@ -63,6 +64,30 @@ export function AuthProvider(props) {
         }
     }
 
+    async function register(name: string, username: string, password: string) {
+        let user = {
+            name,
+            username,
+            password,
+        };
+
+        try {
+            if (name && username && password) {
+                setLoading(true);
+                let retorno = await axios.post("http://localhost:8080/users", user);
+
+                
+            } else {
+                throw new Error('Informe todos os valores.');
+            }
+        } catch (err) {
+            //todo colocar a msg aq
+            throw new Error('erro');
+        } finally {
+            setLoading(false);
+        }
+    }
+
     useEffect(() => {
         let token = Cookies.get("ovinos-token");
 
@@ -72,7 +97,7 @@ export function AuthProvider(props) {
                     retorno.data.valid ? configurarSessao(retorno.data.decoded) : configurarSessao(null);
                 }).catch((err) => {
                     console.log(err);
-                    
+
                 })
         } else {
             configurarSessao(null);
@@ -86,6 +111,7 @@ export function AuthProvider(props) {
                 loading,
                 login,
                 logout,
+                register
             }}
         >
             {props.children}
