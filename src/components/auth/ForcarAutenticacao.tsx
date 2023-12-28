@@ -12,10 +12,9 @@ export default function ForcarAutenticacao(props) {
             <script
               dangerouslySetInnerHTML={{
                 __html: ` 
-                  if(!document.cookie?.includes("ovinos-auth")) {
-                      window.location.href = "/"
-                  }
-                  `,
+                  if(!document.cookie?.includes("ovinos-token")) {
+                    window.location.href = "/"
+                  }`,
               }}
             />
           </Head>
@@ -50,7 +49,7 @@ export default function ForcarAutenticacao(props) {
       );
     }
   
-    if (!loading && user?.user) {
+    if (!loading && user?.name) {
       return renderizarConteudo();
     } else if (loading) {
       return renderizarCarregando();

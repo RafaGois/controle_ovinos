@@ -22,7 +22,7 @@ export function AuthProvider(props) {
     const [loading, setLoading] = useState(true);
     const [user, setUser] = useState<User>(null);
 
-    async function configurarSessao(userRecebido: User) {
+    async function configSection(userRecebido: User) {
         if (userRecebido?.token) {
             setUser(userRecebido);
             gerenciarCookie(true, userRecebido.token);
@@ -37,19 +37,13 @@ export function AuthProvider(props) {
     }
 
     async function login(userRecebido: string, password: string) {
-        let usuarioRecebido = {
-            user: userRecebido,
-            password
-        }
-
         try {
             setLoading(true);
-            const retorno = await axios.post("http://localhost:8080/users/auth", { usuarioRecebido });
-            configurarSessao(retorno.data);
-            router.push("/");
-        } catch (error) {
-            //todo colocar a msg aq
-            throw new Error('erro');
+            const retorno = await axios.get(`http://localhost:8080/users/login/?username=${userRecebido}&password=${password}`);
+            configSection(retorno.data);
+            router.push("/Main");
+        } catch (err) {
+            throw new Error(err.response.data[0]);
         } finally {
             setLoading(false);
         }
@@ -58,7 +52,7 @@ export function AuthProvider(props) {
     async function logout() {
         try {
             setLoading(true);
-            await configurarSessao(null);
+            await configSection(null);
         } finally {
             setLoading(false);
         }
@@ -75,8 +69,6 @@ export function AuthProvider(props) {
             if (name && username && password) {
                 setLoading(true);
                 let retorno = await axios.post("http://localhost:8080/users", user);
-
-                
             } else {
                 throw new Error('Informe todos os valores.');
             }
@@ -92,15 +84,14 @@ export function AuthProvider(props) {
         let token = Cookies.get("ovinos-token");
 
         if (token) {
-            axios.get(`https://urldaapi/auth/valida/?token=${token}`)
+            axios.get(`http://localhost:8080/auth/?token=${token}`)
                 .then((retorno) => {
-                    retorno.data.valid ? configurarSessao(retorno.data.decoded) : configurarSessao(null);
+                    retorno.data.valid ? configSection(retorno.data.decoded) : configSection(null);
                 }).catch((err) => {
                     console.log(err);
-
                 })
         } else {
-            configurarSessao(null);
+            configSection(null);
         }
     }, [])
 

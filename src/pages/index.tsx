@@ -9,7 +9,7 @@ import { IoNotifications } from "react-icons/io5";
 
 export default function Home() {
   const { login, register } = useAuth();
-  const { changeSelectedTab } = useAppData();
+  const { changeSelectedTab, selectedTab } = useAppData();
 
   const [name, setName] = useState("");
   const [username, setUsername] = useState("");
@@ -30,7 +30,7 @@ export default function Home() {
         changeSelectedTab("/Main");
       } catch (err) {
         setLoading(false);
-        exibiError(err)
+        exibirError(err.message ?? 'Erro ao efetuar login.');
       }
     } else {
       try {
@@ -40,14 +40,15 @@ export default function Home() {
         setLoading(false);
       } catch (err) {
         setLoading(false);
-        console.log(err);
-        exibiError(err);
+        exibirError(err.message ?? 'Erro ao criar usuario.');
       }
     }
   }
 
-  function exibiError(msg: string, tempoEmSegundos = 5) {
+  function exibirError(msg: string, tempoEmSegundos = 5) {
     setLoading(false);
+    console.log(msg);
+    
     setError(msg);
     setTimeout(() => setError(null), tempoEmSegundos * 1000);
   }

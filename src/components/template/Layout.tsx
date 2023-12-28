@@ -9,12 +9,12 @@ import LayoutProps from "../../interfaces/LayoutProps";
 
 export default function Layout(props: LayoutProps) {
     const { theme, loading } = useAppData();
-
+    
     return (
         <ForcarAutenticacao>
             <div className={`${theme} flex h-screen w-screen relative`}>
                 <Menu />
-                <div className="flex flex-col p-7 w-full bg-gray-300 dark:bg-gray-800 overflow-auto">
+                <div className="flex flex-col p-7 w-full bg-gray-300 dark:bg-[#222226] overflow-auto">
                     <Cabecalho titulo={props.titulo} subtitulo={props.subTitulo} />
                     {!loading ? <Content>{props.children}</Content> : <LoadingScreen />}
                 </div>

@@ -15,22 +15,22 @@ export default function Menu() {
   return (
     <aside
       className={`${navbarVisibility ? 'flex absolute h-screen' : 'hidden'
-        } w-60 flex-col bg-gray-200 text-gray-700 dark:bg-gray-900 lg:flex select-none z-50 shadow-md`}>
-      <div className="h-20 w-full bg-white dark:bg-gradient-to-r dark:from-green-800 dark:to-emerald-500 flex items-center justify-evenly rounded-br-3xl shadow-sm">
+        } w-20 flex-col items-center bg-gray-200 text-gray-700 dark:bg-[#121314] lg:flex select-none z-50 shadow-md relative`}>
         <Image src={theme === 'dark' ? "/logoPreto.png" : "/logoBranco.png"} alt="logo" width={100} height={50} />
-        <CgClose size={30} color="#dadada" className="cursor-pointer lg:hidden" onClick={() => changeVisibility(false)} />
-      </div>
+        <CgClose 
+        className="cursor-pointer lg:hidden absolute right-[-40px] top-[10px] bg-white rounded-full p-1 shadow-md"
+        size={30} color="#000" onClick={() => changeVisibility(false)} />
+
       <ul className="flex flex-col flex-grow overflow-y-auto mt-4 gap-2">
-        <MenuItem url="/" text="Relatorios" icon={<MdSpaceDashboard size={20} />} type="normal" />
-        <MenuItem url="/" text="Rebanho" icon={<BiSolidSpreadsheet size={20} />} type="normal" />
+        <MenuItem url="/Main" icon={<MdSpaceDashboard size={20} />} type="normal" />
+        <MenuItem url="/Rebanho" icon={<BiSolidSpreadsheet size={20} />} type="normal" />
       </ul>
       <ul>
         <MenuItem
-          url="/Autenticacao"
-          text="Sair"
+          url="/"
           icon={<FiLogOut size={20} />}
           onClick={() => logout()}
-          className="text-red-600 dark:text-red-400 hover:bg-red-400 hover:text-white dark:hover:text-white"
+          className="text-red-600 dark:text-red-400 hover:bg-red-400 hover:text-white dark:hover:text-white w-20"
           type="especial"
         />
       </ul>

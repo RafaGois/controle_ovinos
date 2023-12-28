@@ -4,7 +4,7 @@ import AppContextProps from '../../interfaces/AppContextProps';
 const AppContext = createContext<AppContextProps>({});
 
 export function AppProvider(props: any) {
-    const [theme, setTheme] = useState("light");
+    const [theme, setTheme] = useState("");
     const [navbarVisibility, setNavbarVisibility] = useState(false);
     const [selectedTab, setSelectedTab] = useState("/");
     const [loading, setLoading] = useState(false);

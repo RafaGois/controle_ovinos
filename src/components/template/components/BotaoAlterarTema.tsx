@@ -4,9 +4,9 @@ import { PiMoonStarsFill } from "react-icons/pi";
 import { MdSunny } from "react-icons/md";
 
 export default function BotaoAlterarTema(props: BotaoAlternarTemaProps) {
-    return props.tema === 'dark' ? (
+    return props.theme === 'dark' ? (
         <div
-            onClick={props.alternarTema}
+            onClick={() => props.changeTheme()}
             className="hidden sm:flex items-center cursor-pointer bg-gradient-to-r from-yellow-300 to-yellow-600 w-14 lg:w-24 h-8 p-1 rounded-full selection:not-sr-only border-2 border-x-stone-100 transition ease-in-out delay-150"
         >
             <div className="flex items-center justify-center bg-white text-yellow-600 w-6 h-6 rounded-full">{<MdSunny />}</div>
@@ -16,7 +16,7 @@ export default function BotaoAlterarTema(props: BotaoAlternarTemaProps) {
         </div>
     ) : (
         <div
-            onClick={props.alternarTema}
+            onClick={() => props.changeTheme()}
             className="hidden sm:flex items-center justify-end cursor-pointer bg-gradient-to-r from-indigo-700 to-gray-400 w-14 lg:w-24 h-8 p-1 rounded-full selection:not-sr-only border-2 border-gray-600"
         >
             <div className="hidden lg:flex items-center mr-2 text-white">
