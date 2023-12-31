@@ -16,8 +16,10 @@ export default function Menu() {
     <aside
       className={`${navbarVisibility ? 'flex absolute h-screen' : 'hidden'
         } w-20 flex-col items-center bg-gray-200 text-gray-700 dark:bg-[#121314] lg:flex select-none z-50 shadow-md relative`}>
+      <div className="w-full h-16 bg-gradient-to-b from-[#444547] from-10% to-[#121314]  to-90%">
         <Image src={theme === 'dark' ? "/logoPreto.png" : "/logoBranco.png"} alt="logo" width={100} height={50} />
-        <CgClose 
+      </div>
+      <CgClose
         className="cursor-pointer lg:hidden absolute right-[-40px] top-[10px] bg-white rounded-full p-1 shadow-md"
         size={30} color="#000" onClick={() => changeVisibility(false)} />
 
