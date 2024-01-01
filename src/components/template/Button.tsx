@@ -13,5 +13,5 @@ export default function Button (props: ButtonProps) {
         }
     }
 
-    return <button className={`${retornaCor()} px-2 py-1 rounded-sm`} onClick={() => props.onClick()}>{props.text}</button>
+    return <button className={`${retornaCor()} px-2 py-1.5 rounded-md font-semibold`} onClick={() => props.onClick()}>{props.text}</button>
 }

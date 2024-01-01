@@ -10,8 +10,8 @@ export default function MenuItem(props: MenuItemProps) {
         if (props.type === "especial") {
             return `${usual} ${props.className}`;
         } else {
-            return `${usual} text-gray-400 dark:text-[#585c59] rounded-lg ${props.className} 
-                ${selectedTab === props.url && 'bg-gray-100 hover:rounded-md dark:bg-[#1b1f1d] text-gray-500 dark:text-[#fff]'}`;
+            return `${usual} text-white rounded-lg ${props.className} 
+                ${selectedTab === props.url && 'bg-[#4e9650] hover:rounded-lg'}`;
         }
     }
 
@@ -32,7 +32,7 @@ export default function MenuItem(props: MenuItemProps) {
     return (
         <li
             onClick={props.onClick}
-            className={`hover:bg-gray-100 dark:hover:bg-[#1b1f1d] cursor-pointer box-border ${props.type === "normal" && "rounded-lg"}`}
+            className={`hover:bg-[#4e9650] cursor-pointer box-border ${props.type === "normal" && "rounded-lg"}`}
         >
             {props.url ? <Link href={props.url}>{renderLink()}</Link> : renderLink()}
         </li>
