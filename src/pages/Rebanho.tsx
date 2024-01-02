@@ -50,7 +50,7 @@ export default function Rebanho() {
             </td>
             <td className="px-4 py-4 text-sm font-medium text-gray-700 dark:text-gray-200 whitespace-nowrap hidden md:table-cell">
               <div className="flex items-center justify-center">
-                {ovinoRaw.active == 1 ? <FaCircleCheck color="green" size={22} /> : <IoMdCloseCircle color="red" size={25} />}
+                {ovinoRaw.active == true ? <FaCircleCheck color="green" size={22} /> : <IoMdCloseCircle color="red" size={25} />}
               </div>
             </td>
             <td className="px-4 py-4 text-sm font-medium text-gray-700 dark:text-gray-200 whitespace-nowrap flex justify-center">

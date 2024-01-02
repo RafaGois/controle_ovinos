@@ -85,8 +85,8 @@ export function AuthProvider(props) {
 
         if (token) {
             axios.get(`http://localhost:8080/auth/?token=${token}`)
-                .then((retorno) => {
-                    retorno.data.valid ? configSection(retorno.data.decoded) : configSection(null);
+                .then((retorno) => {                   
+                    retorno.status == 200 ? configSection(retorno.data) : configSection(null);
                 }).catch((err) => {
                     console.log(err);
                 })

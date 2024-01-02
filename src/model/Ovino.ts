@@ -5,9 +5,9 @@ export default class Ovino {
     private _mother: number;
     private _weight: number;
     private _gender: string;
-    private _active: number;
+    private _active: boolean;
 
-    constructor (id: number, tag: number, dtBirth: string, mother: number, weight: number, gender: string, active: number) {
+    constructor (id: number, tag: number, dtBirth: string, mother: number, weight: number, gender: string, active: boolean) {
         this._id = id;
         this._tag = tag;
         this._dtBirth = dtBirth;
@@ -65,7 +65,7 @@ export default class Ovino {
         return this._active;
     }
 
-    set active (active: number) {
+    set active (active: boolean) {
         this._active= active;
     }
 }
