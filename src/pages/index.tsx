@@ -5,7 +5,8 @@ import useAppData from "../data/hook/useAppData";
 
 import { GoAlertFill } from "react-icons/go";
 import { CgSpinner } from "react-icons/cg";
-import { IoNotifications } from "react-icons/io5";
+import { FaCircleCheck } from "react-icons/fa6";
+
 
 export default function Home() {
   const { login, register } = useAuth();
@@ -64,7 +65,7 @@ export default function Home() {
       <div className='w-72'>
         {success && (
           <div className="bg-green-500 rounded-md p-2 border-2 flex items-center gap-2">
-            <IoNotifications size={22}/>
+            <FaCircleCheck size={22}/>
             <p>{success}</p>
           </div>
         )}

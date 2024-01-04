@@ -15,7 +15,7 @@ export default function Ratio(props: RadioProps) {
         })
     }
 
-    return (
+    return props.render && (
         <>
             <h2>{props.title}</h2>
             <ul className="items-center w-full text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg sm:flex dark:bg-[#3d3d4b] dark:border-[#3d3d4b] dark:text-white">

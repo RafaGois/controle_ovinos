@@ -3,5 +3,5 @@ export default interface RadioProps {
     options: any [],
     selected: any,
     setSelected: (selected: any) => void,
-
+    render: boolean,
 }

@@ -15,7 +15,7 @@ export default function Rebanho() {
   const [selectedOvino, setSelectedOvino] = useState<Ovino>(null);
   const [numSelection, setNumSelection] = useState(7);
 
-  const { data: ovinos } = useQuery({
+  const { data: ovinos, refetch } = useQuery({
     queryKey: ["ovinos_rebanho"],
     queryFn: getOvinos,
   });
@@ -147,7 +147,7 @@ export default function Rebanho() {
           <HiOutlineArrowNarrowRight className="ml-2" />
         </button>
       </div>
-      {selectedOvino && <OvinoModal setSelectedOvino={setSelectedOvino} ovino={selectedOvino} />}
+      {selectedOvino && <OvinoModal setSelectedOvino={setSelectedOvino} ovino={selectedOvino} refetch={refetch} />}
     </Layout>
   )
 }
