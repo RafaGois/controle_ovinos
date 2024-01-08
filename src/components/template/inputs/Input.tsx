@@ -1,8 +1,6 @@
 import inputProps from "../../../interfaces/InputProps";
 
 export default function Input(props: inputProps) {
-
-    console.log(props.value);
     
     return props.render && (
         <div className={`flex flex-col`}>

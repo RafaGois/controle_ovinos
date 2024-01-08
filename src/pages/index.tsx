@@ -48,7 +48,6 @@ export default function Home() {
 
   function exibirError(msg: string, tempoEmSegundos = 5) {
     setLoading(false);
-    console.log(msg);
     
     setError(msg);
     setTimeout(() => setError(null), tempoEmSegundos * 1000);

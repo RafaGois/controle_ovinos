@@ -10,10 +10,11 @@ import { IoMdAdd, IoMdCloseCircle } from "react-icons/io";
 import OvinoModal from "../components/template/modal/OvinoModal";
 
 import { formataData, formataHora } from "../utils/date/DateFormatter";
+import Peso from "../model/Peso";
 
 export default function Rebanho() {
   const [selectedOvino, setSelectedOvino] = useState<Ovino>(null);
-  const [numSelection, setNumSelection] = useState(7);
+  const [numSelection, setNumSelection] = useState(6);
 
   const { data: ovinos, refetch } = useQuery({
     queryKey: ["ovinos_rebanho"],
@@ -29,8 +30,9 @@ export default function Rebanho() {
 
   function retornaOvinos() {
     return ovinos?.map((ovinoRaw: Ovino, i: number) => {
+
       return (
-        i >= numSelection - 7 &&
+        i >= numSelection - 6 &&
         i <= numSelection && (
           <tr key={ovinoRaw.tag + "-" + i}>
             <td className="px-4 py-4 text-sm font-medium text-gray-700 dark:text-gray-200 whitespace-nowrap text-center">
@@ -43,7 +45,7 @@ export default function Rebanho() {
               {ovinoRaw.mother ?? "-"}
             </td>
             <td className="px-4 py-4 text-sm font-medium text-gray-700 dark:text-gray-200 whitespace-nowrap hidden md:table-cell text-center">
-              {ovinoRaw.weight ? `${ovinoRaw.weight} kg` : "-"}
+              {ovinoRaw?.Pesos[0]?.weight ? `${ovinoRaw?.Pesos[0]?.weight} kg` : "-"}
             </td>
             <td className="px-4 py-4 text-sm font-medium text-gray-700 dark:text-gray-200 whitespace-nowrap hidden md:table-cell text-center">
               {ovinoRaw.gender}
@@ -67,7 +69,7 @@ export default function Rebanho() {
   }
 
   function novoOvino() {
-    setSelectedOvino(new Ovino(null, null, null, null, null, null, null))
+    setSelectedOvino(new Ovino(null, null, null, null, [], null, null))
   }
 
   return (
@@ -78,7 +80,7 @@ export default function Rebanho() {
           Novo
         </button>
       </div>
-      <div className="overflow-hidden border border-gray-200 dark:border-[#313136] md:rounded-lg h-full">
+      <div className="overflow-hidden border border-gray-200 dark:border-[#313136] md:rounded-lg ">
         <table className="min-w-full divide-y divide-gray-200 dark:divide-[#313136]">
           <thead className="bg-[#327534]">
             <tr className="">
@@ -141,7 +143,7 @@ export default function Rebanho() {
         </button>
         <button
           className="bg-[#327534] text-white py-1 px-4 rounded-md flex items-center hover:bg-green-700 active:bg-green-800"
-          onClick={() => numSelection < ovinos.length && setNumSelection(numSelection + 7)}
+          onClick={() => numSelection < ovinos.length && setNumSelection(numSelection + 6)}
         >
           Próximo
           <HiOutlineArrowNarrowRight className="ml-2" />

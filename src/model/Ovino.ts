@@ -1,18 +1,20 @@
+import Peso from "./Peso";
+
 export default class Ovino {
     private _id: number;
     private _tag: number;
     private _dtBirth: string;
     private _mother: number;
-    private _weight: number;
+    private _Pesos: Peso[];
     private _gender: string;
     private _active: boolean;
 
-    constructor (id: number, tag: number, dtBirth: string, mother: number, weight: number, gender: string, active: boolean) {
+    constructor (id: number, tag: number, dtBirth: string, mother: number, Pesos: Peso[], gender: string, active: boolean) {
         this._id = id;
         this._tag = tag;
         this._dtBirth = dtBirth;
         this._mother = mother;
-        this._weight = weight;
+        this._Pesos = Pesos;
         this._gender = gender;
         this._active = active;
     }
@@ -45,12 +47,12 @@ export default class Ovino {
         this._mother = mother;
     }
 
-    get weight () {
-        return this._weight;
+    get Pesos () {
+        return this._Pesos;
     }
 
-    set weight (weight: number) {
-        this._weight = weight;
+    set Pesos (Pesos: Peso[]) {
+        this._Pesos = Pesos;
     }
 
     get gender () {

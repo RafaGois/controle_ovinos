@@ -12,7 +12,7 @@ export default function OvinoModal(props: ovinoModalProps) {
 
     const [tag, setTag] = useState(props.ovino.tag);
     const [dtBirth, setDtBirth] = useState(formataDataAmericana(props.ovino.dtBirth));
-    const [weight, setWeight] = useState(props.ovino.weight);
+    const [weight, setWeight] = useState(props.ovino?.Pesos[0]?.weight);
     const [gender, setGender] = useState(props.ovino.gender);
     const [active, setActive] = useState(props.ovino.active);
 
@@ -33,9 +33,9 @@ export default function OvinoModal(props: ovinoModalProps) {
             dtBirth,
             weight: weight ?? 0,
             gender,
-            active,
+            active: 1,
         }
-
+        
         if (props.ovino.id) {
             let ret = await axios.patch("http://localhost:8080/ovinos", ovino);
             if(ret.status == 200) {
