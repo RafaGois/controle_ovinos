@@ -136,7 +136,7 @@ export default function Rebanho() {
       <div className="flex gap-4 mt-4 justify-between">
         <button
           className="bg-[#327534] text-white py-1 px-4 rounded-md flex items-center hover:bg-green-700 active:bg-green-800"
-          onClick={() => numSelection != 7 && setNumSelection(numSelection - 7)}
+          onClick={() => numSelection != 6 && setNumSelection(numSelection - 6)}
         >
           <HiOutlineArrowNarrowLeft className="mr-2" />
           Anterior
