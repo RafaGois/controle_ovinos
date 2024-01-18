@@ -88,7 +88,7 @@ export function AuthProvider(props) {
                 .then((retorno) => {                                                                                                    
                     retorno.status == 200 ? configSection(retorno.data) : configSection(null);
                 }).catch((err) => {
-                    console.log(err);
+                    configSection(null)
                 })
         } else {
             configSection(null);

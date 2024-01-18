@@ -30,7 +30,6 @@ export default function Rebanho() {
 
   function retornaOvinos() {
     return ovinos?.map((ovinoRaw: Ovino, i: number) => {
-
       return (
         i >= numSelection - 6 &&
         i <= numSelection && (
