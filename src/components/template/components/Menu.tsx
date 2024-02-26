@@ -8,6 +8,8 @@ import { MdSpaceDashboard } from "react-icons/md";
 import { BiSolidSpreadsheet } from "react-icons/bi";
 import { CgClose } from "react-icons/cg";
 import { GoHomeFill } from "react-icons/go";
+import { BiLogOutCircle } from "react-icons/bi";
+
 
 
 export default function Menu() {
@@ -19,7 +21,7 @@ export default function Menu() {
      w-24 flex-col items-center lg:flex select-none z-50 relative px-2 py-4 bg-gray-300 dark:bg-[#222226]
      `}>
       <aside
-        className="bg-[#327534] shadow-md h-full w-full rounded-xl flex flex-col justify-center items-center"
+        className="bg-[#327534] shadow-xl h-full w-full rounded-xl flex flex-col justify-center items-center"
       >
         <Image src={"/logoBranco.png"} alt="logo" width={100} height={50} className="p-2 mt-2"/>
         <CgClose
@@ -28,15 +30,15 @@ export default function Menu() {
 
         <ul className="flex flex-col justify-center items-center flex-grow overflow-y-auto mt-4 gap-2">
           <MenuItem url="/Home" icon={<GoHomeFill size={20} />} type="normal" />
-          <MenuItem url="/Main" icon={<MdSpaceDashboard size={20} />} type="normal" />
+          <MenuItem url="/Reports" icon={<MdSpaceDashboard size={20} />} type="normal" />
           <MenuItem url="/Rebanho" icon={<BiSolidSpreadsheet size={20} />} type="normal" />
         </ul>
         <ul>
           <MenuItem
             url="/"
-            icon={<FiLogOut size={20} />}
+            icon={<BiLogOutCircle size={20} />}
             onClick={() => logout()}
-            className="text-white hover:bg-red-400 w-20 hover:rounded-b-lg"
+            className=" hover:text-red-500 "
             type="especial"
           />
         </ul>

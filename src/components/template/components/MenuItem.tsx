@@ -32,7 +32,7 @@ export default function MenuItem(props: MenuItemProps) {
     return (
         <li
             onClick={props.onClick}
-            className={`hover:bg-[#4e9650] cursor-pointer box-border ${props.type === "normal" && "rounded-lg"}`}
+            className={` cursor-pointer box-border ${props.type === "normal" && "rounded-lg hover:bg-[#4e9650]"}`}
         >
             {props.url ? <Link href={props.url}>{renderLink()}</Link> : renderLink()}
         </li>
